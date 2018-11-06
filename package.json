@@ -4,11 +4,20 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build" : "",
-    "watch" : "concurrently \"npm run watch-server\" \"npm run watch-client\"",
+    "build": "npm run build-server && npm run build-client",
+    "build-prod" : "npm run build-server && npm run build-client-prod",
+    "build-server": "cd server && npm run typescript-build",
+    "build-client": "cd client && npm run build && npm run post-build",
+    "build-client-prod":"cd client && npm run build-prod npm run post-build",
+    "watch": "concurrently \"npm run watch-server\" \"npm run watch-client\"",
     "watch-server": "cd client && npm start",
     "watch-client": "cd server && npm run watch",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "npm run test-server && nvm run test-client",
+    "test-server" : "cd server && npm test",
+    "test-client" : "cd client && npm test",
+    "install-all" : "npm install && npm install-server && npm install-client",
+    "install-server" : "cd server && npm install",
+    "install-client" : "cd client && npm install"
   },
   "author": "",
   "license": "ISC",
