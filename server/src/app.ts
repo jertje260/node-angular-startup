@@ -16,6 +16,5 @@ app.get("*", (req: Request, res: any) => {
     res.setHeader("content-type", "text/html");
     res.sendFile(__dirname + "/public/index.html");
 });
-console.log("henk");
 
 export default app;
