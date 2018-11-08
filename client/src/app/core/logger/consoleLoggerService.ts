@@ -1,23 +1,25 @@
-import { ILogger } from "./ILogger";
+import { LoggerService } from './loggerService';
+import { Injectable } from '@angular/core';
 
-export class ConsoleLogger implements ILogger {
+@Injectable()
+export class ConsoleLogger implements LoggerService {
     trace(message: string, ...supportingData: any[]): void {
-        this.emitLogMessage("trace", message, supportingData);
+        this.emitLogMessage('trace', message, supportingData);
     }
     debug(message: string, ...supportingData: any[]): void {
-        this.emitLogMessage("debug", message, supportingData);
+        this.emitLogMessage('debug', message, supportingData);
     }
     warn(message: string, ...supportingData: any[]): void {
-        this.emitLogMessage("warn", message, supportingData);
+        this.emitLogMessage('warn', message, supportingData);
     }
     error(message: string, ...supportingData: any[]): void {
-        this.emitLogMessage("error", message, supportingData);
+        this.emitLogMessage('error', message, supportingData);
     }
     info(message: string, ...supportingData: any[]): void {
-        this.emitLogMessage("info", message, supportingData);
+        this.emitLogMessage('info', message, supportingData);
     }
 
-    private emitLogMessage(messageType: "debug" | "info" | "warn" | "error" | "trace", msg: string, supportingDetails: any[]) {
+    private emitLogMessage(messageType: 'debug' | 'info' | 'warn' | 'error' | 'trace', msg: string, supportingDetails: any[]) {
         // some browsers dont have a console :S
         if (!window.console || !console[messageType]) {
             return;
