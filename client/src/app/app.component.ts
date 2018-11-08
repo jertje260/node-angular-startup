@@ -8,8 +8,11 @@ import { LoggerService } from './core/logger/logger.service';
 })
 export class AppComponent {
 
-  constructor(private logger: LoggerService) {
-    logger.info('test', 'a', { foo: 'bar' });
-  }
+  constructor(private logger: LoggerService) {  }
   title = 'frontend';
+
+  logSomething() {
+    const obj = { foo: 'bar' };
+    this.logger.info('test %s', 'a', obj.foo);
+  }
 }

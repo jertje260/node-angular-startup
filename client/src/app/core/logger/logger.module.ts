@@ -8,19 +8,20 @@ import { ApiLoggerService } from './api-logger.service';
 
 @NgModule({
   imports: [
-    CommonModule
+    CommonModule,
   ],
   providers: [
     ApiLoggerService,
     {
       provide: LoggerService,
-      useFactory: () => {
+      useFactory: (apiLoggerService: ApiLoggerService) => {
         if (environment.useHttpLogger) {
-          return new HttpLoggerService(null);
+          return new HttpLoggerService(apiLoggerService);
         } else {
           return new ConsoleLoggerService();
         }
-      }
+      },
+      deps: [ApiLoggerService]
     }
   ],
   exports: [

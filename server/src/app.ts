@@ -1,7 +1,9 @@
 import express, { Request } from "express";
 import { routes } from "./routes/routes";
+import * as bodyParser from "body-parser";
 
 const app = express();
+app.use(bodyParser.json());
 
 app.set("port", process.env.PORT || 3000);
 
