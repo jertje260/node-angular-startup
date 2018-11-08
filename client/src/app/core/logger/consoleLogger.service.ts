@@ -1,8 +1,8 @@
-import { LoggerService } from './loggerService';
+import { LoggerService } from './logger.service';
 import { Injectable } from '@angular/core';
 
 @Injectable()
-export class ConsoleLogger implements LoggerService {
+export class ConsoleLoggerService implements LoggerService {
     trace(message: string, ...supportingData: any[]): void {
         this.emitLogMessage('trace', message, supportingData);
     }

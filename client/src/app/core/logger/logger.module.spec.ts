@@ -4,7 +4,7 @@ describe('LoggerModule', () => {
   let loggerModule: LoggerModule;
 
   beforeEach(() => {
-    loggerModule = new LoggerModule();
+    loggerModule = new LoggerModule(null);
   });
 
   it('should create an instance', () => {

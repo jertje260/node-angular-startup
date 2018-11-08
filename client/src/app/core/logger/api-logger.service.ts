@@ -2,9 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { ILogMessage } from './ILogMessage';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class ApiLoggerService {
 
   constructor(private httpClient: HttpClient) { }

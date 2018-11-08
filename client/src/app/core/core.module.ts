@@ -10,7 +10,7 @@ import { LoggerModule } from './logger/logger.module';
     CommonModule,
     HttpClientModule,
     RouterModule,
-    LoggerModule
+    LoggerModule,
   ],
   providers: [
   ]

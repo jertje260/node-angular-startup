@@ -1,9 +1,11 @@
-import { LoggerService } from './loggerService';
+import { LoggerService } from './logger.service';
 import { ApiLoggerService } from './api-logger.service';
 import { ILogMessage } from './ILogMessage';
 import { Injectable } from '@angular/core';
 
-@Injectable()
+@Injectable({
+    providedIn: 'root'
+  })
 export class HttpLoggerService implements LoggerService {
 
     constructor(private apiLogger: ApiLoggerService) {}
