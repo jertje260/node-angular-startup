@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { ILogMessage } from './ILogMessage';
+import { ILogMessage } from '../interfaces/ILogMessage';
 
 @Injectable()
 export class ApiLoggerService {

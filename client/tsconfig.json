@@ -18,6 +18,7 @@
       "dom"
     ],
     "paths": {
+      // shorthands, use import { some-component } from '@app/shared/some-component'
       "@app/*" : ["src/app/*"],
       "@app/core/*" : ["src/app/core/*"],
       "@app/shared/*" : ["src/app/shared/*"],

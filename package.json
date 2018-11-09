@@ -5,21 +5,26 @@
   "main": "index.js",
   "scripts": {
     "build": "npm run build-server && npm run build-client",
+    "start" : "concurrently \"npm run start-client\" \"npm run start-server\"",
+    "start-server": "cd server && npm run serve",
+    "start-client": "cd client && npm start",
     "build-prod": "npm run build-server && npm run build-client-prod",
     "build-server": "cd server && npm run typescript-build",
     "build-client": "cd client && npm run build && npm run post-build",
     "build-client-prod": "cd client && npm run build-prod npm run post-build",
     "watch": "concurrently \"npm run watch-server\" \"npm run watch-client\"",
-    "watch-server": "cd client && npm start",
-    "watch-client": "cd server && npm run watch",
+    "watch-server": "cd server && npm run watch",
+    "watch-client": "cd client && npm start",
     "test": "npm run test-server && nvm run test-client",
     "test-server": "cd server && npm test",
     "test-client": "cd client && npm test",
     "install-all": "npm install && npm run install-server && npm run install-client",
     "install-server": "cd server && npm install",
-    "install-client": "cd client && npm install"
+    "install-client": "cd client && npm install",
+    "build-docker" : "npm run build-prod && npm run server-docker",
+    "server-docker" : "cd server && npm run build-docker"
   },
-  "author": "",
+  "author": "Jeroen Broekhuizen",
   "license": "ISC",
   "devDependencies": {
     "concurrently": "^4.0.1"

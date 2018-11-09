@@ -1,6 +1,6 @@
-import { LoggerService } from './logger.service';
+import { LoggerService } from '../abstract/logger.service';
 import { ApiLoggerService } from './api-logger.service';
-import { ILogMessage } from './ILogMessage';
+import { ILogMessage } from '../interfaces/ILogMessage';
 import { Injectable } from '@angular/core';
 
 @Injectable()

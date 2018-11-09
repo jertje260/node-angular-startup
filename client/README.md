@@ -8,11 +8,11 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app w
 
 ## Code scaffolding
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`. You can specify the path/folder by adding it before your component like `ng g c shared/component-name`. You can also specify the module by using the `--module` or `-m` argument giving the module name after it
 
 ## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build. `npm run build` and `npm run build-prod` will also build it, but copy the `dist/` directory over to the server `dist/` folder to just start the server and have angular running there.
 
 ## Running unit tests
 
@@ -30,3 +30,9 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 Taken from [here](https://itnext.io/choosing-a-highly-scalable-folder-structure-in-angular-d987de65ec7)
 but with a combination of two other repos found [here](https://github.com/ngx-rocket/starter-kit/tree/master/src) and [here](https://github.com/gothinkster/angular-realworld-example-app)
+
+Some good reads can be found below
+[Basic tuturial](https://angular.io/tutorial)
+[Angular providers](https://medium.com/claritydesignsystem/making-full-use-of-angular-providers-part-1-14609a09514b)
+[Avoid common confusions](https://blog.angularindepth.com/avoiding-common-confusions-with-modules-in-angular-ada070e6891f)
+[Configurable modules](https://medium.com/@michelestieven/angular-writing-configurable-modules-69e6ea23ea42) Logging Module is like this
