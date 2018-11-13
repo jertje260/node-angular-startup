@@ -2,7 +2,8 @@ import { NgModule, Optional, SkipSelf } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
-import { LoggerModule } from './logger/logger.module';
+import { ConfigService } from './config/config.service';
+
 
 
 @NgModule({
@@ -10,9 +11,9 @@ import { LoggerModule } from './logger/logger.module';
     CommonModule,
     HttpClientModule,
     RouterModule,
-    LoggerModule,
   ],
   providers: [
+    ConfigService
   ]
 })
 export class CoreModule {
