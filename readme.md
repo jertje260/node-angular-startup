@@ -1,6 +1,6 @@
 ## Getting all the packages
 
-Command `npm run install-all` installs all the dependencies for all the sub projects
+Command `npm run install-all` installs all the dependencies for all the sub projects. Besides this there are some global packages required: `typescript @angular/cli`
 
 ## Develop in watch mode
 
