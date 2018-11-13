@@ -1,14 +1,13 @@
 import { Injectable, Inject } from '@angular/core';
 import { ILogPublisher } from '../interfaces/ILogPublisher';
 import { ILogMessage } from '../interfaces/ILogMessage';
-import { LogConfigService } from './log-config.service';
-import { ILoggersConfiguration } from '../interfaces/ILoggersConfiguration';
 import { IPublisherConfiguration } from '../interfaces/IPublisherConfiguration';
+import { ConfigService } from '@app/core/config/config.service';
 
 @Injectable()
 export class ConsoleLoggerService implements ILogPublisher {
 
-    constructor(@Inject(LogConfigService) private config: ILoggersConfiguration) { }
+    constructor() { }
 
     publishLog(logMessage: ILogMessage): Promise<void> {
         this.emitLogMessage(logMessage.logLevel, logMessage.logMessage, logMessage.logArguments);
@@ -31,6 +30,6 @@ export class ConsoleLoggerService implements ILogPublisher {
     }
 
     public getConfig(): IPublisherConfiguration {
-        return this.config.console;
+        return ConfigService.settings.logConfiguration.console;
     }
 }

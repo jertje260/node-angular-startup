@@ -3,8 +3,6 @@ import { LoggerService } from './services/logger.service';
 import { HttpLoggerService } from './services/http-logger.service';
 import { ConsoleLoggerService } from './services/console-logger.service';
 import { LogPublisherService } from './services/log-publisher.service';
-import { ILoggersConfiguration } from './interfaces/ILoggersConfiguration';
-import { LogConfigService } from './services/log-config.service';
 import { AbstractLogPublisherService } from './abstract/ILogPublisherService';
 
 @NgModule({

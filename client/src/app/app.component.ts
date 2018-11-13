@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { LoggerService } from './core/logger';
 
 @Component({
   selector: 'app-root',
@@ -6,6 +7,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+
+  constructor(private logger: LoggerService) {
+    logger.info('hi');
+  }
 
   user = 'henk';
 

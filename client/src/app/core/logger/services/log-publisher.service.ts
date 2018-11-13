@@ -12,6 +12,7 @@ export class LogPublisherService implements AbstractLogPublisherService {
   publishers: ILogPublisher[];
 
   constructor(private console: ConsoleLoggerService, private http: HttpLoggerService) {
+    this.publishers = [];
     this.publishers.push(console);
     this.publishers.push(http);
   }
