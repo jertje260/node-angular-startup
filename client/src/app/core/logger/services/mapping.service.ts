@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { ILocation } from '../interfaces/ILocation';
 
 
 @Injectable({
@@ -9,10 +10,29 @@ export class MappingService {
 
   }
 
-  public getLocation() {
+  public getLocation(depth: number = 2): ILocation {
     const err = new Error();
 
     const splitted = err.stack.split('\n');
-    console.log(splitted);
+
+    const regex = /\w*at (.*) \((.*)\?:(\d+):(\d+)\)/;
+
+    const match = regex.exec(splitted[depth]);
+
+    if (match === null) {
+      return {
+        colon: 0,
+        file: 'unknown',
+        line: 0,
+        method: 'unknown'
+      };
+    }
+
+    return {
+      colon: parseInt(match[4], 0),
+      file: match[2],
+      line: parseInt(match[3], 0),
+      method: match[1]
+    };
   }
 }

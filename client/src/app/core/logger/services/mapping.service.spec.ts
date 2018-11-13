@@ -10,8 +10,27 @@ describe('MappingService', () => {
     expect(service).toBeTruthy();
   });
 
-  it('should log', () => {
+  it(`get location should return file: './src/app/core/logger/services/mapping.service.spec.ts'`, () => {
     const service: MappingService = TestBed.get(MappingService);
-    service.getLocation();
+    const location = service.getLocation();
+    expect(location.file).toEqual('./src/app/core/logger/services/mapping.service.spec.ts');
+  });
+
+  it(`get location should return line: 19`, () => {
+    const service: MappingService = TestBed.get(MappingService);
+    const location = service.getLocation();
+    expect(location.line).toEqual(19);
+  });
+
+  it(`get location should return colon: 32`, () => {
+    const service: MappingService = TestBed.get(MappingService);
+    const location = service.getLocation();
+    expect(location.colon).toEqual(32);
+  });
+
+  it(`get location should return method: UserContext.eval`, () => {
+    const service: MappingService = TestBed.get(MappingService);
+    const location = service.getLocation();
+    expect(location.method).toEqual('UserContext.eval');
   });
 });
