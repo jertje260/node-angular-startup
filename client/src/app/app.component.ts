@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { LoggerService } from './core/logger/abstract/logger.service';
 
 @Component({
   selector: 'app-root',
@@ -8,11 +7,10 @@ import { LoggerService } from './core/logger/abstract/logger.service';
 })
 export class AppComponent {
 
-  constructor(private logger: LoggerService) {  }
+  user = 'henk';
+
   title = 'frontend';
 
-  logSomething() {
-    const obj = { foo: 'bar' };
-    this.logger.info('test %s', 'a', obj.foo);
-  }
+
+
 }

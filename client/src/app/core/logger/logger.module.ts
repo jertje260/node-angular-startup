@@ -2,8 +2,8 @@ import { NgModule, Optional, SkipSelf } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LoggerService } from './abstract/logger.service';
 import { environment } from '@env/environment';
-import { HttpLoggerService } from './services/httpLogger.service';
-import { ConsoleLoggerService } from './services/consoleLogger.service';
+import { HttpLoggerService } from './services/http-logger.service';
+import { ConsoleLoggerService } from './services/console-logger.service';
 import { ApiLoggerService } from './services/api-logger.service';
 
 @NgModule({

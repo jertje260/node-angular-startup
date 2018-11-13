@@ -8,9 +8,9 @@ describe('UserComponentComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ UserComponentComponent ]
+      declarations: [UserComponentComponent],
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
@@ -21,5 +21,11 @@ describe('UserComponentComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should contain pre with user', () => {
+    component.user = 'henk';
+    fixture.detectChanges();
+    expect(fixture.nativeElement.querySelector('pre').innerText).toEqual('henk');
   });
 });

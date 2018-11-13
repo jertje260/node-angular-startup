@@ -6,6 +6,7 @@ import { UserComponentComponent } from './components';
   imports: [
     CommonModule
   ],
-  declarations: [UserComponentComponent]
+  declarations: [UserComponentComponent],
+  exports: [UserComponentComponent]
 })
 export class SharedModule { }
