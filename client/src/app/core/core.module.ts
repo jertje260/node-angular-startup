@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { ConfigService } from './config/config.service';
+import { LoggerModule } from './logger/logger.module';
 
 
 
@@ -11,6 +12,7 @@ import { ConfigService } from './config/config.service';
     CommonModule,
     HttpClientModule,
     RouterModule,
+    LoggerModule
   ],
   providers: [
     ConfigService

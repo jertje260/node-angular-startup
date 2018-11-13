@@ -44,3 +44,5 @@ Some good reads can be found below
 [Modules explained](https://malcoded.com/posts/angular-fundamentals-modules)
 
 [Angular tips](https://malcoded.com/posts/improve-your-angular-codebase) expecially check points 1 to 4
+
+[Multi DI, multi array](https://netbasal.com/better-code-organization-with-angular-di-multi-option-31f691918655)

@@ -1,4 +1,4 @@
-import { NgModule, Optional, SkipSelf, InjectionToken, ModuleWithProviders } from '@angular/core';
+import { NgModule, Optional, SkipSelf, ModuleWithProviders } from '@angular/core';
 import { LoggerService } from './services/logger.service';
 import { HttpLoggerService } from './services/http-logger.service';
 import { ConsoleLoggerService } from './services/console-logger.service';
@@ -28,10 +28,6 @@ export class LoggerModule {
           provide: AbstractLogPublisherService,
           useClass: LogPublisherService
         },
-        {
-          provide: LogConfigService,
-          useValue: config
-        }
       ],
     };
   }
