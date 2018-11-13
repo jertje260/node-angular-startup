@@ -1,25 +1,23 @@
-import { LoggerService } from '../abstract/logger.service';
-import { Injectable } from '@angular/core';
+import { Injectable, Inject } from '@angular/core';
+import { ILogPublisher } from '../interfaces/ILogPublisher';
+import { ILogMessage } from '../interfaces/ILogMessage';
+import { LogConfigService } from './log-config.service';
+import { ILoggersConfiguration } from '../interfaces/ILoggersConfiguration';
+import { IPublisherConfiguration } from '../interfaces/IPublisherConfiguration';
 
 @Injectable()
-export class ConsoleLoggerService implements LoggerService {
-    trace(message: string, ...supportingData: any[]): void {
-        this.emitLogMessage('trace', message, supportingData);
-    }
-    debug(message: string, ...supportingData: any[]): void {
-        this.emitLogMessage('debug', message, supportingData);
-    }
-    warn(message: string, ...supportingData: any[]): void {
-        this.emitLogMessage('warn', message, supportingData);
-    }
-    error(message: string, ...supportingData: any[]): void {
-        this.emitLogMessage('error', message, supportingData);
-    }
-    info(message: string, ...supportingData: any[]): void {
-        this.emitLogMessage('info', message, supportingData);
+export class ConsoleLoggerService implements ILogPublisher {
+
+    constructor(@Inject(LogConfigService) private config: ILoggersConfiguration) { }
+
+    publishLog(logMessage: ILogMessage): Promise<void> {
+        this.emitLogMessage(logMessage.logLevel, logMessage.logMessage, logMessage.logArguments);
+        return Promise.resolve();
     }
 
-    private emitLogMessage(messageType: 'debug' | 'info' | 'warn' | 'error' | 'trace', msg: string, supportingDetails: any[]) {
+
+    private emitLogMessage(messageType: 'debug' | 'info' | 'warn' | 'error', msg: string, supportingDetails: any[]) {
+
         // some browsers dont have a console :S
         if (!window.console || !console[messageType]) {
             return;
@@ -30,5 +28,9 @@ export class ConsoleLoggerService implements LoggerService {
         } else {
             console[messageType](msg);
         }
+    }
+
+    public getConfig(): IPublisherConfiguration {
+        return this.config.console;
     }
 }

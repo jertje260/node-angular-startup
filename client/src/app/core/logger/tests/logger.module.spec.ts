@@ -1,4 +1,4 @@
-import { LoggerModule } from './logger.module';
+import { LoggerModule } from '../logger.module';
 
 describe('LoggerModule', () => {
   let loggerModule: LoggerModule;

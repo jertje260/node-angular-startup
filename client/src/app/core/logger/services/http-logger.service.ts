@@ -1,36 +1,23 @@
-import { LoggerService } from '../abstract/logger.service';
-import { ApiLoggerService } from './api-logger.service';
-import { ILogMessage } from '../interfaces/ILogMessage';
-import { Injectable } from '@angular/core';
+import { ILogMessage, LogMessageLevel } from '../interfaces/ILogMessage';
+import { Injectable, Inject } from '@angular/core';
+import { ILogPublisher } from '../interfaces/ILogPublisher';
+import { HttpClient } from '@angular/common/http';
+import { LogConfigService } from './log-config.service';
+import { ILoggersConfiguration } from '../interfaces/ILoggersConfiguration';
+import { IPublisherConfiguration } from '../interfaces/IPublisherConfiguration';
 
 @Injectable()
-export class HttpLoggerService implements LoggerService {
+export class HttpLoggerService implements ILogPublisher {
 
-    constructor(private apiLogger: ApiLoggerService) {}
+    constructor(@Inject(LogConfigService) private config: ILoggersConfiguration, private httpClient: HttpClient) { }
 
-    trace(message: string, ...supportingData: any[]): void {
-        this.emitLogMessage('trace', message, supportingData);
-    }
-    debug(message: string, ...supportingData: any[]): void {
-        this.emitLogMessage('debug', message, supportingData);
-    }
-    warn(message: string, ...supportingData: any[]): void {
-        this.emitLogMessage('warn', message, supportingData);
-    }
-    error(message: string, ...supportingData: any[]): void {
-        this.emitLogMessage('error', message, supportingData);
-    }
-    info(message: string, ...supportingData: any[]): void {
-        this.emitLogMessage('info', message, supportingData);
+    public async publishLog(logMessage: ILogMessage): Promise<void> {
+        await this.httpClient.post('api/log', logMessage);
     }
 
-    private emitLogMessage(messageType: 'debug' | 'info' | 'warn' | 'error' | 'trace', msg: string, supportingDetails: any[]) {
-        const logMessage: ILogMessage = {
-            logLevel: messageType,
-            logArguments: supportingDetails,
-            logMessage: msg
-        };
 
-        this.apiLogger.sendLogMessage(logMessage);
+    public getConfig(): IPublisherConfiguration {
+        return this.config.http;
     }
+
 }

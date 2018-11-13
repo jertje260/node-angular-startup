@@ -1,34 +1,13 @@
-import { NgModule, Optional, SkipSelf } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { LoggerService } from './abstract/logger.service';
-import { environment } from '@env/environment';
+import { NgModule, Optional, SkipSelf, InjectionToken, ModuleWithProviders } from '@angular/core';
+import { LoggerService } from './services/logger.service';
 import { HttpLoggerService } from './services/http-logger.service';
 import { ConsoleLoggerService } from './services/console-logger.service';
-import { ApiLoggerService } from './services/api-logger.service';
+import { LogPublisherService } from './services/log-publisher.service';
+import { ILoggersConfiguration } from './interfaces/ILoggersConfiguration';
+import { LogConfigService } from './services/log-config.service';
+import { AbstractLogPublisherService } from './abstract/ILogPublisherService';
 
-@NgModule({
-  imports: [
-    CommonModule,
-  ],
-  providers: [
-    ApiLoggerService,
-    {
-      provide: LoggerService,
-      useFactory: (apiLoggerService: ApiLoggerService) => {
-        if (environment.useHttpLogger) {
-          return new HttpLoggerService(apiLoggerService);
-        } else {
-          return new ConsoleLoggerService();
-        }
-      },
-      deps: [ApiLoggerService]
-    }
-  ],
-  exports: [
-  ],
-  declarations: [
-  ]
-})
+@NgModule()
 export class LoggerModule {
 
   constructor(@Optional() @SkipSelf() parentModule: LoggerModule) {
@@ -37,4 +16,24 @@ export class LoggerModule {
       throw new Error(`${parentModule} has already been loaded. Import LoggerModule in the CoreModule only.`);
     }
   }
+
+  static forRoot(config: ILoggersConfiguration): ModuleWithProviders {
+    return {
+      ngModule: LoggerModule,
+      providers: [
+        LoggerService,
+        ConsoleLoggerService,
+        HttpLoggerService,
+        {
+          provide: AbstractLogPublisherService,
+          useClass: LogPublisherService
+        },
+        {
+          provide: LogConfigService,
+          useValue: config
+        }
+      ],
+    };
+  }
+
 }

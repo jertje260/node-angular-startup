@@ -1,6 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 
-import { MappingService } from './mapping.service';
+import { MappingService } from '../services/mapping.service';
 
 describe('MappingService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));
@@ -10,10 +10,10 @@ describe('MappingService', () => {
     expect(service).toBeTruthy();
   });
 
-  it(`get location should return file: './src/app/core/logger/services/mapping.service.spec.ts'`, () => {
+  it(`get location should return file: './src/app/core/logger/tests/mapping.service.spec.ts'`, () => {
     const service: MappingService = TestBed.get(MappingService);
     const location = service.getLocation();
-    expect(location.file).toEqual('./src/app/core/logger/services/mapping.service.spec.ts');
+    expect(location.file).toEqual('./src/app/core/logger/tests/mapping.service.spec.ts');
   });
 
   it(`get location should return line: 19`, () => {
