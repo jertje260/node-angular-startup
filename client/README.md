@@ -40,3 +40,7 @@ Some good reads can be found below
 [Avoid common confusions](https://blog.angularindepth.com/avoiding-common-confusions-with-modules-in-angular-ada070e6891f)
 
 [Configurable modules](https://medium.com/@michelestieven/angular-writing-configurable-modules-69e6ea23ea42) Logging Module is like this
+
+[Modules explained](https://malcoded.com/posts/angular-fundamentals-modules)
+
+[Angular tips](https://malcoded.com/posts/improve-your-angular-codebase) expecially check points 1 to 4
