@@ -32,7 +32,11 @@ Taken from [here](https://itnext.io/choosing-a-highly-scalable-folder-structure-
 but with a combination of two other repos found [here](https://github.com/ngx-rocket/starter-kit/tree/master/src) and [here](https://github.com/gothinkster/angular-realworld-example-app)
 
 Some good reads can be found below
+
 [Basic tuturial](https://angular.io/tutorial)
+
 [Angular providers](https://medium.com/claritydesignsystem/making-full-use-of-angular-providers-part-1-14609a09514b)
+
 [Avoid common confusions](https://blog.angularindepth.com/avoiding-common-confusions-with-modules-in-angular-ada070e6891f)
+
 [Configurable modules](https://medium.com/@michelestieven/angular-writing-configurable-modules-69e6ea23ea42) Logging Module is like this
