@@ -7,7 +7,17 @@ import { ILoggersConfiguration } from './interfaces/ILoggersConfiguration';
 import { LogConfigService } from './services/log-config.service';
 import { AbstractLogPublisherService } from './abstract/ILogPublisherService';
 
-@NgModule()
+@NgModule({
+  providers: [
+    LoggerService,
+    ConsoleLoggerService,
+    HttpLoggerService,
+    {
+      provide: AbstractLogPublisherService,
+      useClass: LogPublisherService
+    },
+  ],
+})
 export class LoggerModule {
 
   constructor(@Optional() @SkipSelf() parentModule: LoggerModule) {
@@ -15,21 +25,6 @@ export class LoggerModule {
     if (parentModule) {
       throw new Error(`${parentModule} has already been loaded. Import LoggerModule in the CoreModule only.`);
     }
-  }
-
-  static forRoot(config: ILoggersConfiguration): ModuleWithProviders {
-    return {
-      ngModule: LoggerModule,
-      providers: [
-        LoggerService,
-        ConsoleLoggerService,
-        HttpLoggerService,
-        {
-          provide: AbstractLogPublisherService,
-          useClass: LogPublisherService
-        },
-      ],
-    };
   }
 
 }
