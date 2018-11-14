@@ -7,7 +7,6 @@ interface ILogMessage {
 }
 
 export const postLog = (req: Request, res: Response) => {
-    console.log(req.body);
     const message: ILogMessage = req.body;
     console[message.logLevel]("[FRONTEND] " + message.logMessage, message.logArguments);
 

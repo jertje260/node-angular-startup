@@ -9,7 +9,11 @@ import { LoggerService } from './core/logger';
 export class AppComponent {
 
   constructor(private logger: LoggerService) {
-    logger.info('hi');
+    console.log('started');
+    logger.info('info');
+    logger.warn('warn');
+    logger.error('error');
+    logger.debug('debug');
   }
 
   user = 'henk';

@@ -11,7 +11,7 @@ export class HttpLoggerService implements ILogPublisher {
     constructor(private httpClient: HttpClient) { }
 
     public async publishLog(logMessage: ILogMessage): Promise<void> {
-        await this.httpClient.post('api/log', logMessage);
+        await this.httpClient.post('api/log', logMessage).toPromise();
     }
 
 

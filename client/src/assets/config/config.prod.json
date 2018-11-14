@@ -1,10 +1,10 @@
 {
     "logConfiguration": {
         "console": {
-            "level" : "OFF"
+            "level" : "All"
         },
         "http": {
-            "level" : "WARN"
+            "level" : "All"
         }
     }
 }
