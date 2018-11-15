@@ -50,3 +50,5 @@ Some good reads can be found below
 [Multi DI, multi array](https://netbasal.com/better-code-organization-with-angular-di-multi-option-31f691918655)
 
 [Http interceptors](https://medium.com/@ryanchenkie_40935/angular-authentication-using-the-http-client-and-http-interceptors-2f9d1540eb8) [offical docs interceptors](https://angular.io/guide/http#intercepting-requests-and-responses)
+
+[Augury debug helper](https://augury.rangle.io/)
