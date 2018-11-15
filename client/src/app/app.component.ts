@@ -9,7 +9,6 @@ import { LoggerService } from './core/logger';
 export class AppComponent {
 
   constructor(private logger: LoggerService) {
-    console.log('started');
     logger.info('info');
     logger.warn('warn');
     logger.error('error');
@@ -20,8 +19,20 @@ export class AppComponent {
 
   title = 'frontend';
 
-  log() {
-    this.logger.info('hello');
+  logInfo() {
+    this.logger.info('info');
+  }
+
+  logDebug() {
+    this.logger.debug('debug');
+  }
+
+  logWarning() {
+    this.logger.warn('warning');
+  }
+
+  logError() {
+    this.logger.error('error');
   }
 
 }

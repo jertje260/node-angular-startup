@@ -20,6 +20,11 @@
 
 <app-user-component [user]="user"></app-user-component>
 
-<button (click)="log()">log something</button>
+<div>
+<button (click)="logDebug()">log debug</button>
+<button (click)="logInfo()">log info</button>
+<button (click)="logWarning()">log waring</button>
+<button (click)="logError()">log error</button>
+</div>
 
 <router-outlet></router-outlet>

@@ -35,6 +35,8 @@ Some good reads can be found below
 
 [Basic tuturial](https://angular.io/tutorial)
 
+[Quickstart](https://angular.io/guide/quickstart)
+
 [Angular providers](https://medium.com/claritydesignsystem/making-full-use-of-angular-providers-part-1-14609a09514b)
 
 [Avoid common confusions](https://blog.angularindepth.com/avoiding-common-confusions-with-modules-in-angular-ada070e6891f)
@@ -46,3 +48,5 @@ Some good reads can be found below
 [Angular tips](https://malcoded.com/posts/improve-your-angular-codebase) expecially check points 1 to 4
 
 [Multi DI, multi array](https://netbasal.com/better-code-organization-with-angular-di-multi-option-31f691918655)
+
+[Http interceptors](https://medium.com/@ryanchenkie_40935/angular-authentication-using-the-http-client-and-http-interceptors-2f9d1540eb8) [offical docs interceptors](https://angular.io/guide/http#intercepting-requests-and-responses)
