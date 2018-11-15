@@ -1,14 +1,8 @@
-import { NgModule, Optional, SkipSelf, APP_INITIALIZER } from '@angular/core';
+import { NgModule, Optional, SkipSelf } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
-import { ConfigService } from './config/config.service';
 import { LoggerModule } from './logger/logger.module';
-
-export function initializeCore(configService: ConfigService) {
-  return () => configService.load();
-}
-
 
 @NgModule({
   imports: [
@@ -18,10 +12,6 @@ export function initializeCore(configService: ConfigService) {
     LoggerModule
   ],
   providers: [
-    ConfigService,
-       { provide: APP_INITIALIZER,
-         useFactory: initializeCore,
-         deps: [ConfigService], multi: true }
   ]
 })
 export class CoreModule {

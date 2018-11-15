@@ -2,7 +2,8 @@ import { Injectable, Inject } from '@angular/core';
 import { ILogPublisher } from '../interfaces/ILogPublisher';
 import { ILogMessage } from '../interfaces/ILogMessage';
 import { IPublisherConfiguration } from '../interfaces/IPublisherConfiguration';
-import { ConfigService } from '@app/core/config/config.service';
+import { environment } from '@env/environment';
+
 
 @Injectable()
 export class ConsoleLoggerService implements ILogPublisher {
@@ -30,6 +31,6 @@ export class ConsoleLoggerService implements ILogPublisher {
     }
 
     public getConfig(): IPublisherConfiguration {
-        return ConfigService.settings.logConfiguration.console;
+        return environment.logConfig.console;
     }
 }

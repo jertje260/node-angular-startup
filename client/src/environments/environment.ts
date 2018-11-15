@@ -1,4 +1,5 @@
 import { IEnvironment } from './IEnvironment';
+import { LogLevel } from '@app/core/logger';
 
 // This file can be replaced during build by using the `fileReplacements` array.
 // `ng build --prod` replaces `environment.ts` with `environment.prod.ts`.
@@ -6,8 +7,14 @@ import { IEnvironment } from './IEnvironment';
 
 export const environment: IEnvironment = {
   production: false,
-  useHttpLogger: true,
-  name: 'develop',
+  logConfig: {
+    console: {
+      level: LogLevel.All
+    },
+    http: {
+      level: LogLevel.Warn
+    }
+  }
 };
 
 /*

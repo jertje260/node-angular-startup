@@ -3,7 +3,7 @@ import { Injectable, Inject } from '@angular/core';
 import { ILogPublisher } from '../interfaces/ILogPublisher';
 import { HttpClient } from '@angular/common/http';
 import { IPublisherConfiguration } from '../interfaces/IPublisherConfiguration';
-import { ConfigService } from '@app/core/config/config.service';
+import { environment } from '@env/environment';
 
 @Injectable()
 export class HttpLoggerService implements ILogPublisher {
@@ -16,7 +16,7 @@ export class HttpLoggerService implements ILogPublisher {
 
 
     public getConfig(): IPublisherConfiguration {
-        return ConfigService.settings.logConfiguration.http;
+        return environment.logConfig.http;
     }
 
 }

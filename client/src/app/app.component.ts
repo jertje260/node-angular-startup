@@ -20,6 +20,8 @@ export class AppComponent {
 
   title = 'frontend';
 
-
+  log() {
+    this.logger.info('hello');
+  }
 
 }

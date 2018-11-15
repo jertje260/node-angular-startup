@@ -1,5 +1,6 @@
+import { ILoggersConfiguration } from '@app/core/logger';
+
 export interface IEnvironment {
     production: boolean;
-    useHttpLogger: boolean;
-    name: string; // defines the conf.${env}.json for the config
+    logConfig: ILoggersConfiguration;
 }
