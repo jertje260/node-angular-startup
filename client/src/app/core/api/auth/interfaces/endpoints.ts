@@ -1,5 +1,7 @@
-export interface Endpoints {
-    login: string;
-    logout: string;
-    signup: string;
+namespace API {
+    export interface Endpoints {
+        login: string;
+        logout: string;
+        signup: string;
+    }
 }
