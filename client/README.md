@@ -41,7 +41,7 @@ Some good reads can be found below
 
 [Avoid common confusions](https://blog.angularindepth.com/avoiding-common-confusions-with-modules-in-angular-ada070e6891f)
 
-[Configurable modules](https://medium.com/@michelestieven/angular-writing-configurable-modules-69e6ea23ea42) Logging Module is like this
+[Configurable modules](https://medium.com/@michelestieven/angular-writing-configurable-modules-69e6ea23ea42) checkout multi-providers branch for this
 
 [Modules explained](https://malcoded.com/posts/angular-fundamentals-modules)
 
