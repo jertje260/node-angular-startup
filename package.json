@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "npm run build-server && npm run build-client",
-    "start" : "concurrently \"npm run start-client\" \"npm run start-server\"",
+    "start": "concurrently \"npm run start-client\" \"npm run start-server\"",
     "start-server": "cd server && npm run serve",
     "start-client": "cd client && npm start",
     "build-prod": "npm run build-server && npm run build-client-prod",
@@ -21,8 +21,8 @@
     "install-all": "npm install && npm run install-server && npm run install-client",
     "install-server": "cd server && npm install",
     "install-client": "cd client && npm install",
-    "build-docker" : "npm run build-prod && npm run server-docker",
-    "server-docker" : "cd server && npm run build-docker"
+    "build-docker": "npm run build-prod && npm run server-docker",
+    "server-docker": "cd server && npm run build-docker"
   },
   "author": "Jeroen Broekhuizen",
   "license": "ISC",
